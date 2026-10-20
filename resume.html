@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gopi Choudhary - Resume</title>
+<style>
+@page{size:A4;margin:13mm 14mm}
+*{box-sizing:border-box}
+body{margin:0;font:10.2pt/1.38 "Calibri","Segoe UI",Arial,sans-serif;color:#111}
+h1{font-size:21pt;margin:0;letter-spacing:.2px}
+.title{font-size:10.5pt;color:#333;margin:2px 0 4px}
+.contact{font-size:9.6pt;color:#222}
+.contact a{color:#1a4fb4;text-decoration:none}
+h2{font-size:10.6pt;text-transform:uppercase;letter-spacing:.9px;color:#1a3d7c;border-bottom:1.2px solid #1a3d7c;margin:11px 0 5px;padding-bottom:1px}
+p{margin:0}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.row b{font-size:10.4pt}
+.row i,.row span.r{color:#333;white-space:nowrap;font-size:9.6pt}
+ul{margin:2px 0 6px;padding-left:15px}
+li{margin:1.5px 0}
+.tech{color:#444;font-size:9.4pt}
+.skills p{margin:1.5px 0}
+a{color:#1a4fb4;text-decoration:none}
+</style>
+</head>
+<body>
+<h1>Gopi Choudhary</h1>
+<div class="title">Machine Learning Engineer &middot; B.Tech Computer Science and Engineering, NIT Sikkim</div>
+<div class="contact">
+  <a href="mailto:gopigkc1910@gmail.com">gopigkc1910@gmail.com</a> &nbsp;|&nbsp;
+  <a href="https://www.linkedin.com/in/gopi19choudhary/">linkedin.com/in/gopi19choudhary</a> &nbsp;|&nbsp;
+  <a href="https://github.com/GopiChoudhary19">github.com/GopiChoudhary19</a> &nbsp;|&nbsp;
+  <a href="https://gopichoudhary19.github.io/">gopichoudhary19.github.io</a>
+</div>
+
+<h2>Summary</h2>
+<p>Computer Science student building machine learning systems end to end: retrieval and question answering, deep learning in PyTorch, and applied ML optimised for the business decision rather than raw accuracy. Every project ships with leak-free evaluation on held-out data, unit tests and CI. Seeking ML / AI Engineer or Software Engineer roles.</p>
+
+<h2>Education</h2>
+<div class="row"><b>National Institute of Technology (NIT) Sikkim</b><span class="r">India</span></div>
+<div class="row"><span>Bachelor of Technology, Computer Science and Engineering</span></div>
+<h2>Projects</h2>
+
+<div class="row"><b>Hybrid Retrieval + Reranking Question Answering (RAG)</b><span class="r"><a href="https://github.com/GopiChoudhary19/hybrid-rag-qa">github.com/GopiChoudhary19/hybrid-rag-qa</a></span></div>
+<ul>
+  <li>Built an open-domain QA system over 2,067 Wikipedia passages that returns an answer with its source passage.</li>
+  <li>Implemented Okapi BM25 from scratch on a SciPy sparse matrix and fused it with dense bi-encoder retrieval via reciprocal rank fusion, raising Recall@20 from 0.964 to <b>0.990</b>.</li>
+  <li>Added cross-encoder reranking that lifted Recall@1 from 0.74 to <b>0.884</b> (MRR@20 0.923) on 500 SQuAD questions; end-to-end answers reach <b>78.3 F1</b>, within 7 F1 of a reader given the correct passage.</li>
+</ul>
+<p class="tech">Python, PyTorch, Hugging Face Transformers, Sentence-Transformers, SciPy, pytest, GitHub Actions</p>
+
+<div class="row" style="margin-top:6px"><b>Cost-Sensitive Credit Risk Scoring</b><span class="r"><a href="https://github.com/GopiChoudhary19/credit-risk-scoring">github.com/GopiChoudhary19/credit-risk-scoring</a></span></div>
+<ul>
+  <li>Built a loan-approval model where approving a defaulter costs 5x a wrongful rejection; compared logistic regression and LightGBM in leak-free scikit-learn pipelines with 5-fold cross-validation.</li>
+  <li>Calibrated probabilities and tuned the decision threshold on out-of-fold expected cost, cutting cost per applicant by <b>35%</b> (0.835 to 0.545) versus the default 0.5 threshold on a held-out test set (ROC-AUC 0.81).</li>
+  <li>Explained predictions with permutation importance; packaged training, batch scoring and unit tests.</li>
+</ul>
+<p class="tech">Python, scikit-learn, LightGBM, pandas, Matplotlib, pytest</p>
+
+<div class="row" style="margin-top:6px"><b>Residual CNN Image Classifier with Grad-CAM</b><span class="r"><a href="https://github.com/GopiChoudhary19/fashion-cnn-gradcam">github.com/GopiChoudhary19/fashion-cnn-gradcam</a></span></div>
+<ul>
+  <li>Designed a 392K-parameter residual CNN from scratch reaching <b>92.8%</b> test accuracy (macro-F1 0.928) on Fashion-MNIST, trained with One-Cycle LR, label smoothing and batched tensor augmentation.</li>
+  <li>Implemented Grad-CAM to explain predictions and traced the main error (Shirt vs T-shirt, 102 cases) to the model ignoring collars and buttons.</li>
+</ul>
+<p class="tech">Python, PyTorch, scikit-learn, Matplotlib</p>
+
+<div class="row" style="margin-top:6px"><b>Mini-GPT from Scratch</b><span class="r"><a href="https://github.com/GopiChoudhary19/mini-gpt-from-scratch">github.com/GopiChoudhary19/mini-gpt-from-scratch</a></span></div>
+<ul>
+  <li>Implemented a decoder-only Transformer in PyTorch: causal multi-head self-attention, positional embeddings, residual pre-norm blocks, AdamW with cosine decay, and top-k autoregressive sampling.</li>
+</ul>
+
+<div class="row" style="margin-top:4px"><b>ML Model Serving REST API</b><span class="r"><a href="https://github.com/GopiChoudhary19/ml-model-serving-api">github.com/GopiChoudhary19/ml-model-serving-api</a></span></div>
+<ul>
+  <li>Built a containerised inference service with FastAPI and Pydantic validation, health and metadata endpoints, a pytest suite and Docker / docker-compose deployment.</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<div class="skills">
+  <p><b>Languages:</b> Python, Java, C++, SQL, TypeScript, JavaScript</p>
+  <p><b>Machine Learning:</b> PyTorch, Hugging Face Transformers, Sentence-Transformers, scikit-learn, LightGBM, XGBoost, NumPy, pandas</p>
+  <p><b>ML Methods:</b> Retrieval-Augmented Generation, dense and sparse retrieval, reranking, CNNs, Transformers, cross-validation, probability calibration, model explainability</p>
+  <p><b>Engineering:</b> FastAPI, Spring Boot, React, Next.js, PostgreSQL, Redis, Docker, Git, GitHub Actions, Linux</p>
+</div>
+</body>
+</html>

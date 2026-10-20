@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gopi Choudhary - Machine Learning Engineer</title>
+<meta name="description" content="Gopi Choudhary - CSE student at NIT Sikkim building retrieval systems, deep learning models and applied ML with measured results.">
+<meta property="og:title" content="Gopi Choudhary - Machine Learning Engineer">
+<meta property="og:description" content="RAG and retrieval, deep learning, applied ML. Projects with code, tests and measured results.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gopichoudhary19.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%234f46e5'/><text x='50%' y='56%' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='30' fill='white'>GC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --bg2:#f6f7fb; --card:#ffffff; --text:#0f172a; --muted:#475569; --line:#e2e8f0;
+  --accent:#4f46e5; --accent2:#0ea5e9; --chip:#eef2ff; --chipText:#3730a3; --good:#059669;
+  --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1020; --bg2:#0f1529; --card:#121a33; --text:#e6e9f2; --muted:#9aa4bf; --line:#1f2a4a;
+    --accent:#818cf8; --accent2:#38bdf8; --chip:#1e2550; --chipText:#c7d2fe; --good:#34d399;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1020; --bg2:#0f1529; --card:#121a33; --text:#e6e9f2; --muted:#9aa4bf; --line:#1f2a4a;
+  --accent:#818cf8; --accent2:#38bdf8; --chip:#1e2550; --chipText:#c7d2fe; --good:#34d399;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{font-weight:800;color:var(--text);letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.links a{color:var(--muted);font-weight:500;font-size:15px}
+.links a:hover{color:var(--text);text-decoration:none}
+.theme{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:8px;padding:5px 9px;cursor:pointer;font-size:14px}
+@media (max-width:720px){.links a.hide-sm{display:none}}
+.hero{padding:84px 0 64px;background:radial-gradient(900px 400px at 85% -10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent),radial-gradient(700px 300px at -10% 10%,color-mix(in srgb,var(--accent2) 14%,transparent),transparent)}
+.eyebrow{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:14px;font-weight:600}
+h1{font-size:clamp(36px,6vw,58px);line-height:1.08;letter-spacing:-.035em;margin:10px 0 14px}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:720px;margin:0 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:10px;font-weight:600;border:1px solid var(--line);color:var(--text);background:var(--card);box-shadow:var(--shadow)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em}
+.stat small{color:var(--muted);font-size:13px}
+@media (max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+section{padding:64px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:30px;letter-spacing:-.025em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 32px}
+.project{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:22px;box-shadow:var(--shadow)}
+.project h3{margin:0 0 6px;font-size:22px;letter-spacing:-.02em}
+.project p{margin:0 0 12px;color:var(--muted)}
+.project ul{margin:0 0 14px;padding-left:18px}
+.project li{margin:4px 0}
+.metric{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:13px;font-weight:600;color:var(--good);background:color-mix(in srgb,var(--good) 12%,transparent);border-radius:6px;padding:3px 8px;margin:0 6px 6px 0}
+.project img{width:100%;border-radius:12px;border:1px solid var(--line);background:#fff}
+.flow{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px;overflow-x:auto;white-space:pre;color:var(--text)}
+.project>*{min-width:0}
+@media (max-width:860px){.project{grid-template-columns:1fr;padding:20px}}
+@media (max-width:520px){h1 br{display:none}.wrap{padding:0 16px}.stat b{font-size:22px}.flow{font-size:11px}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}
+.chip{background:var(--chip);color:var(--chipText);font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px}
+.plinks a{font-weight:600;margin-right:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:860px){.grid3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:18px}
+.card p{color:var(--muted);margin:0 0 10px;font-size:15px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media (max-width:720px){.skills{grid-template-columns:1fr}}
+.skills h3{margin:0 0 10px;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.contact{text-align:center}
+.contact .btns{justify-content:center}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px;text-align:center}
+</style>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Gopi<span>.</span>Choudhary</a>
+    <nav class="links">
+      <a href="#projects">Projects</a>
+      <a class="hide-sm" href="#skills">Skills</a>
+      <a class="hide-sm" href="#about">About</a>
+      <a href="resume.pdf">Resume</a>
+      <button class="theme" id="theme" aria-label="Toggle colour theme">◐</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Machine Learning Engineer · CSE @ NIT Sikkim</div>
+    <h1>I build ML systems and<br>measure whether they work.</h1>
+    <p class="lead">Retrieval and question answering, deep learning for vision and language, and applied ML built around the decision it supports. Every project ships with code, tests, CI and results on a held-out set.</p>
+    <div class="btns">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="resume.pdf">Download resume</a>
+      <a class="btn" href="https://github.com/GopiChoudhary19">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/gopi19choudhary/">LinkedIn</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>0.88</b><small>Recall@1 after cross-encoder reranking (up from 0.74)</small></div>
+      <div class="stat"><b>78.3 F1</b><small>end-to-end open-domain QA on SQuAD</small></div>
+      <div class="stat"><b>-35%</b><small>lending cost from cost-aware thresholding</small></div>
+      <div class="stat"><b>92.8%</b><small>Fashion-MNIST accuracy, 392K-param CNN</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>Machine learning projects</h2>
+    <p class="sub">Each result below was measured on data the model never saw during training or tuning.</p>
+
+    <article class="project">
+      <div>
+        <h3>Hybrid retrieval + reranking QA</h3>
+        <p>Answers questions over 2,067 Wikipedia passages and cites the passage it used. Each stage is benchmarked so every component has to earn its place.</p>
+        <div><span class="metric">Recall@1 0.74 → 0.88</span><span class="metric">Recall@20 0.99</span><span class="metric">78.3 F1 end-to-end</span></div>
+        <ul>
+          <li>BM25 written from scratch on a sparse term-document matrix</li>
+          <li>Dense bi-encoder retrieval fused with BM25 by reciprocal rank fusion</li>
+          <li>Cross-encoder reranking of the top 20, then a sliding-window extractive reader</li>
+          <li>Loses only ~7 F1 versus a reader handed the gold passage</li>
+        </ul>
+        <div class="chips"><span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">Sentence-Transformers</span><span class="chip">SciPy</span><span class="chip">Information retrieval</span></div>
+        <div class="plinks"><a href="https://github.com/GopiChoudhary19/hybrid-rag-qa">Code →</a></div>
+      </div>
+      <div class="flow">question
+  ├─► BM25 (from scratch) ─┐
+  │                        ├─► rank fusion
+  └─► dense bi-encoder ────┘        │
+                                    ▼
+              cross-encoder rerank (top 20)
+                                    │
+                                    ▼
+              extractive reader (top 3)
+                                    │
+                                    ▼
+                 answer + source passage
+
+Recall@1   BM25 .784  dense .636
+           fusion .740  + rerank .884</div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Cost-sensitive credit risk scoring</h3>
+        <p>A loan-approval model optimised for what the lender pays for: approving a defaulter costs 5x more than rejecting a good applicant.</p>
+        <div><span class="metric">cost 0.835 → 0.545 / applicant</span><span class="metric">ROC-AUC 0.81</span></div>
+        <ul>
+          <li>Leak-free scikit-learn pipelines: logistic regression vs LightGBM</li>
+          <li>Probability calibration, then a decision threshold tuned on out-of-fold expected cost</li>
+          <li>Model and threshold chosen in cross-validation; test split used once</li>
+          <li>Permutation importance for explainability</li>
+        </ul>
+        <div class="chips"><span class="chip">scikit-learn</span><span class="chip">LightGBM</span><span class="chip">Calibration</span><span class="chip">pandas</span></div>
+        <div class="plinks"><a href="https://github.com/GopiChoudhary19/credit-risk-scoring">Code →</a></div>
+      </div>
+      <img src="assets/credit-eval.png" alt="ROC curves, calibration curves and expected cost against decision threshold" loading="lazy">
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Residual CNN with Grad-CAM</h3>
+        <p>A compact residual network built from scratch in PyTorch for clothing images, with heatmaps showing what drives each prediction and an analysis of where it fails.</p>
+        <div><span class="metric">92.8% test accuracy</span><span class="metric">392K parameters</span></div>
+        <ul>
+          <li>One-Cycle LR, label smoothing, checkpoint selection on a validation split</li>
+          <li>Batched tensor augmentation: shifts, flips, random erasing</li>
+          <li>Grad-CAM shows Shirt vs T-shirt errors come from ignoring collars and buttons</li>
+        </ul>
+        <div class="chips"><span class="chip">PyTorch</span><span class="chip">CNN</span><span class="chip">Explainable AI</span></div>
+        <div class="plinks"><a href="https://github.com/GopiChoudhary19/fashion-cnn-gradcam">Code →</a></div>
+      </div>
+      <img src="assets/gradcam.png" alt="Grad-CAM heatmaps over Fashion-MNIST test images, including four misclassifications" loading="lazy">
+    </article>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Mini-GPT from scratch</h3>
+        <p>Decoder-only Transformer in PyTorch: causal multi-head attention, positional embeddings, AdamW with cosine decay, top-k sampling.</p>
+        <div class="chips"><span class="chip">PyTorch</span><span class="chip">Transformers</span></div>
+        <a href="https://github.com/GopiChoudhary19/mini-gpt-from-scratch">Code →</a>
+      </div>
+      <div class="card">
+        <h3>ML model serving API</h3>
+        <p>Containerised inference service: FastAPI routing, Pydantic validation, health and metadata endpoints, pytest suite, Docker.</p>
+        <div class="chips"><span class="chip">FastAPI</span><span class="chip">Docker</span></div>
+        <a href="https://github.com/GopiChoudhary19/ml-model-serving-api">Code →</a>
+      </div>
+      <div class="card">
+        <h3>Intern Tracker</h3>
+        <p>System design for an internship and hackathon discovery platform: architecture, PostgreSQL schema, API contract and threat model, Next.js + FastAPI scaffold.</p>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span></div>
+        <a href="https://github.com/GopiChoudhary19/Intern-tracker">Code →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="sub">What I use day to day.</p>
+    <div class="skills">
+      <div class="card"><h3>Machine learning</h3><div class="chips"><span class="chip">PyTorch</span><span class="chip">Hugging Face Transformers</span><span class="chip">Sentence-Transformers</span><span class="chip">scikit-learn</span><span class="chip">LightGBM</span><span class="chip">XGBoost</span><span class="chip">NumPy</span><span class="chip">pandas</span></div></div>
+      <div class="card"><h3>ML techniques</h3><div class="chips"><span class="chip">RAG &amp; retrieval</span><span class="chip">Reranking</span><span class="chip">CNNs</span><span class="chip">Transformers</span><span class="chip">Cross-validation</span><span class="chip">Calibration</span><span class="chip">Explainability</span></div></div>
+      <div class="card"><h3>Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">Java</span><span class="chip">C++</span><span class="chip">SQL</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span></div></div>
+      <div class="card"><h3>Engineering</h3><div class="chips"><span class="chip">FastAPI</span><span class="chip">Spring Boot</span><span class="chip">React / Next.js</span><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">Git</span><span class="chip">GitHub Actions</span><span class="chip">Linux</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p class="sub" style="max-width:760px">I'm a Computer Science and Engineering student at the National Institute of Technology Sikkim. I like ML problems where the obvious metric is not the real goal: a retriever has to put the right passage first, and a credit model has to minimise lending losses rather than maximise accuracy. I care about evaluation that would survive a skeptical reviewer: held-out test sets, leak-free pipelines, tests and CI. I'm looking for ML / AI engineering and software engineering roles.</p>
+  </div>
+</section>
+
+<section class="alt contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p class="sub">Open to ML / AI engineer and software engineer internships and full-time roles.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:gopigkc1910@gmail.com">gopigkc1910@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/gopi19choudhary/">LinkedIn</a>
+      <a class="btn" href="https://github.com/GopiChoudhary19">GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Gopi Choudhary · Built with plain HTML and CSS, hosted on GitHub Pages</div></footer>
+
+<script>
+document.getElementById('theme').addEventListener('click',function(){
+  var r=document.documentElement,cur=r.getAttribute('data-theme');
+  var dark=cur?cur==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var next=dark?'light':'dark';r.setAttribute('data-theme',next);
+  try{localStorage.setItem('theme',next)}catch(e){}
+});
+</script>
+</body>
+</html>
